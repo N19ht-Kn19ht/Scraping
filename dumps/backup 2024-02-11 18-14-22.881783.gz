@@ -1,0 +1,195 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.1
+-- Dumped by pg_dump version 16.1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: cars; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cars (
+    id integer NOT NULL,
+    link character varying NOT NULL,
+    title character varying NOT NULL,
+    price_usd integer NOT NULL,
+    mileage integer,
+    name character varying(50),
+    phone bigint,
+    image_url character varying NOT NULL,
+    count_images integer NOT NULL,
+    car_number character varying,
+    car_vin character varying,
+    datetime timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE public.cars OWNER TO postgres;
+
+--
+-- Name: cars_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.cars_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.cars_id_seq OWNER TO postgres;
+
+--
+-- Name: cars_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.cars_id_seq OWNED BY public.cars.id;
+
+
+--
+-- Name: cars id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cars ALTER COLUMN id SET DEFAULT nextval('public.cars_id_seq'::regclass);
+
+
+--
+-- Data for Name: cars; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.cars (id, link, title, price_usd, mileage, name, phone, image_url, count_images, car_number, car_vin, datetime) FROM stdin;
+656	https://auto.ria.com/uk/auto_skoda_octavia_36005717.html	Skoda Octavia 2007	7300	276000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__535716941f.jpg	89	  	TMBBK61Z988010848	2024-02-11 17:07:27.578208
+657	https://auto.ria.com/uk/auto_volkswagen_passat_alltrack_35662955.html	Volkswagen Passat Alltrack 2019	24700	196000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_passat-alltrack__526448376f.jpg	177	  	WVWZZZ3CZKE203530	2024-02-11 17:07:38.692488
+658	https://auto.ria.com/uk/auto_skoda_octavia_35817793.html	Skoda Octavia 2019	14700	215000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__530664521f.jpg	162	  	TMBJG9NE7K0183019	2024-02-11 17:07:50.047988
+659	https://auto.ria.com/uk/auto_ford_f_150_36027029.html	Ford F-150 2021	41000	39000	Максим	380679119939	https://cdn0.riastatic.com/photosnew/auto/photo/ford_f-150__536309380f.jpg	75	AI 1625 PC	1FTFW1E50MFB30737	2024-02-11 17:08:00.491213
+660	https://auto.ria.com/uk/auto_audi_sq8_35138974.html	Audi SQ8 2020	82500	148000	Дмитро Миколайович	380965375555	https://cdn0.riastatic.com/photosnew/auto/photo/audi_sq8__513010945f.jpg	68	  	WAUZZZF14MD004209	2024-02-11 17:08:11.97863
+661	https://auto.ria.com/uk/auto_peugeot_508_34970735.html	Peugeot 508 2020	29900	31000	Игорь	380973272610	https://cdn3.riastatic.com/photosnew/auto/photo/peugeot_508__508613883f.jpg	32	BI 0508 HH	VR3F35GXVKY194630	2024-02-11 17:08:23.519924
+662	https://auto.ria.com/uk/auto_skoda_octavia_36028584.html	Skoda Octavia 2017	14600	268000	Ім’я не вказане	380972243699	https://cdn4.riastatic.com/photosnew/auto/photo/skoda_octavia__536331699f.jpg	60	  	TMBJJ9NE2J0180593	2024-02-11 17:08:32.695867
+663	https://auto.ria.com/uk/auto_mercedes_benz_e_class_35952141.html	Mercedes-Benz E-Class 2020	56500	34000	Саша	380977053963	https://cdn3.riastatic.com/photosnew/auto/photo/mercedes-benz_e-class__534300168f.jpg	32	HX 0001 MM	W1KZF0FB0MA871050	2024-02-11 17:08:43.585582
+664	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35903311.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kyiv	380675464141	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__532943137f.jpg	43	  	LFVVB9E68P5014753	2024-02-11 17:08:52.845279
+665	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015636.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kiev	380672594432	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535991069f.jpg	29	  	LFVVB9E61P5017669	2024-02-11 17:09:03.293077
+666	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015653.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kiev	380672594432	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535991375f.jpg	37	  	LFVVB9E68P5015675	2024-02-11 17:09:14.30838
+667	https://auto.ria.com/uk/auto_mercedes_benz_sprinter_36014361.html	Mercedes-Benz Sprinter 2018	21800	197000	Ref & Bus	380676115119	https://cdn4.riastatic.com/photosnew/auto/photo/mercedes-benz_sprinter__535930159f.jpg	14	  	WDB9061332N772348	2024-02-11 17:09:24.27593
+668	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35974113.html	Volkswagen ID.4 Crozz 2023	37500	1000	SKM-1 Kiev	380672594432	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534849964f.jpg	58	  	LFVVB9E66P5016372	2024-02-11 17:09:33.367012
+669	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35940260.html	Volkswagen ID.4 Crozz 2023	28300	1000	4Колеса	380671557373	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__533971868f.jpg	33	  	LFVVB9E6XP5009232	2024-02-11 17:09:42.980091
+670	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36020745.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__536128525f.jpg	27	  	LFVVB9E66P5029896	2024-02-11 17:09:52.921842
+671	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015282.html	Volkswagen ID.4 Crozz 2023	28300	1000	4Колеса Львів	380673395542	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535964192f.jpg	27	  	LFVVB9E60P5015606	2024-02-11 17:10:01.619747
+672	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35851718.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kyiv	380675464141	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__531527419f.jpg	39	  	LFVVB9E68P5014624	2024-02-11 17:10:10.150127
+673	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015607.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kiev	380672594432	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535990338f.jpg	35	  	LFVVB9E60P5022328	2024-02-11 17:10:18.977294
+674	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35982520.html	Volkswagen ID.4 Crozz 2023	28590	1000	ЕлектроКінь	380638500606	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535095588f.jpg	29	  	LFVVB9E60P5015413	2024-02-11 17:10:27.422896
+675	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35979119.html	Volkswagen ID.4 Crozz 2023	28280	1000	Батарейка іК	380634100907	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534990936f.jpg	19	  	LFVVB9E61P5010446	2024-02-11 17:10:36.712032
+676	https://auto.ria.com/uk/auto_skoda_octavia_36005717.html	Skoda Octavia 2007	7300	276000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__535716941f.jpg	89	  	TMBBK61Z988010848	2024-02-11 17:10:47.870939
+677	https://auto.ria.com/uk/auto_volkswagen_passat_alltrack_35662955.html	Volkswagen Passat Alltrack 2019	24700	196000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_passat-alltrack__526448376f.jpg	177	  	WVWZZZ3CZKE203530	2024-02-11 17:11:00.036229
+678	https://auto.ria.com/uk/auto_skoda_octavia_35817793.html	Skoda Octavia 2019	14700	215000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__530664521f.jpg	162	  	TMBJG9NE7K0183019	2024-02-11 17:11:09.809809
+679	https://auto.ria.com/uk/auto_ford_f_150_36027029.html	Ford F-150 2021	41000	39000	Максим	380679119939	https://cdn0.riastatic.com/photosnew/auto/photo/ford_f-150__536309380f.jpg	75	AI 1625 PC	1FTFW1E50MFB30737	2024-02-11 17:11:20.055536
+680	https://auto.ria.com/uk/auto_audi_sq8_35138974.html	Audi SQ8 2020	82500	148000	Дмитро Миколайович	380965375555	https://cdn0.riastatic.com/photosnew/auto/photo/audi_sq8__513010945f.jpg	68	  	WAUZZZF14MD004209	2024-02-11 17:11:29.170169
+681	https://auto.ria.com/uk/auto_peugeot_508_34970735.html	Peugeot 508 2020	29900	31000	Игорь	380973272610	https://cdn3.riastatic.com/photosnew/auto/photo/peugeot_508__508613883f.jpg	32	BI 0508 HH	VR3F35GXVKY194630	2024-02-11 17:11:38.130674
+682	https://auto.ria.com/uk/auto_skoda_octavia_36028584.html	Skoda Octavia 2017	14600	268000	Ім’я не вказане	380972243699	https://cdn4.riastatic.com/photosnew/auto/photo/skoda_octavia__536331699f.jpg	60	  	TMBJJ9NE2J0180593	2024-02-11 17:11:46.752642
+683	https://auto.ria.com/uk/auto_mercedes_benz_e_class_35952141.html	Mercedes-Benz E-Class 2020	56500	34000	Саша	380977053963	https://cdn3.riastatic.com/photosnew/auto/photo/mercedes-benz_e-class__534300168f.jpg	32	HX 0001 MM	W1KZF0FB0MA871050	2024-02-11 17:11:55.335486
+684	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35903311.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kyiv	380675464141	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__532943137f.jpg	43	  	LFVVB9E68P5014753	2024-02-11 17:12:04.314232
+685	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015636.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kiev	380672594432	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535991069f.jpg	29	  	LFVVB9E61P5017669	2024-02-11 17:12:14.131258
+686	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015653.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kiev	380672594432	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535991375f.jpg	37	  	LFVVB9E68P5015675	2024-02-11 17:12:22.827712
+687	https://auto.ria.com/uk/auto_mercedes_benz_sprinter_36014361.html	Mercedes-Benz Sprinter 2018	21800	197000	Ref & Bus	380676115119	https://cdn4.riastatic.com/photosnew/auto/photo/mercedes-benz_sprinter__535930159f.jpg	14	  	WDB9061332N772348	2024-02-11 17:12:31.796594
+688	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35974113.html	Volkswagen ID.4 Crozz 2023	37500	1000	SKM-1 Kiev	380672594432	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534849964f.jpg	58	  	LFVVB9E66P5016372	2024-02-11 17:12:42.308507
+689	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35940260.html	Volkswagen ID.4 Crozz 2023	28300	1000	4Колеса	380671557373	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__533971868f.jpg	33	  	LFVVB9E6XP5009232	2024-02-11 17:12:52.802162
+690	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36020745.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__536128525f.jpg	27	  	LFVVB9E66P5029896	2024-02-11 17:13:03.411622
+691	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015282.html	Volkswagen ID.4 Crozz 2023	28300	1000	4Колеса Львів	380673395542	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535964192f.jpg	27	  	LFVVB9E60P5015606	2024-02-11 17:13:16.312727
+692	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35851718.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kyiv	380675464141	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__531527419f.jpg	39	  	LFVVB9E68P5014624	2024-02-11 17:13:26.998265
+693	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015607.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kiev	380672594432	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535990338f.jpg	35	  	LFVVB9E60P5022328	2024-02-11 17:13:38.331143
+694	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35982520.html	Volkswagen ID.4 Crozz 2023	28590	1000	ЕлектроКінь	380638500606	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535095588f.jpg	29	  	LFVVB9E60P5015413	2024-02-11 17:13:49.619655
+695	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35979119.html	Volkswagen ID.4 Crozz 2023	28280	1000	Батарейка іК	380634100907	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534990936f.jpg	19	  	LFVVB9E61P5010446	2024-02-11 17:14:03.574663
+696	https://auto.ria.com/uk/auto_skoda_octavia_36005717.html	Skoda Octavia 2007	7300	276000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__535716941f.jpg	89	  	TMBBK61Z988010848	2024-02-11 17:14:20.086605
+697	https://auto.ria.com/uk/auto_volkswagen_passat_alltrack_35662955.html	Volkswagen Passat Alltrack 2019	24700	196000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_passat-alltrack__526448376f.jpg	177	  	WVWZZZ3CZKE203530	2024-02-11 17:14:35.457002
+698	https://auto.ria.com/uk/auto_skoda_octavia_35817793.html	Skoda Octavia 2019	14700	215000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__530664521f.jpg	162	  	TMBJG9NE7K0183019	2024-02-11 17:14:48.930313
+699	https://auto.ria.com/uk/auto_ford_f_150_36027029.html	Ford F-150 2021	41000	39000	Максим	380679119939	https://cdn0.riastatic.com/photosnew/auto/photo/ford_f-150__536309380f.jpg	75	AI 1625 PC	1FTFW1E50MFB30737	2024-02-11 17:15:00.819924
+700	https://auto.ria.com/uk/auto_audi_sq8_35138974.html	Audi SQ8 2020	82500	148000	Дмитро Миколайович	380965375555	https://cdn0.riastatic.com/photosnew/auto/photo/audi_sq8__513010945f.jpg	68	  	WAUZZZF14MD004209	2024-02-11 17:15:13.200147
+701	https://auto.ria.com/uk/auto_peugeot_508_34970735.html	Peugeot 508 2020	29900	31000	Игорь	380973272610	https://cdn3.riastatic.com/photosnew/auto/photo/peugeot_508__508613883f.jpg	32	BI 0508 HH	VR3F35GXVKY194630	2024-02-11 17:15:23.927757
+702	https://auto.ria.com/uk/auto_skoda_octavia_36028584.html	Skoda Octavia 2017	14600	268000	Ім’я не вказане	380972243699	https://cdn4.riastatic.com/photosnew/auto/photo/skoda_octavia__536331699f.jpg	60	  	TMBJJ9NE2J0180593	2024-02-11 17:15:34.586202
+703	https://auto.ria.com/uk/auto_mercedes_benz_e_class_35952141.html	Mercedes-Benz E-Class 2020	56500	34000	Саша	380977053963	https://cdn3.riastatic.com/photosnew/auto/photo/mercedes-benz_e-class__534300168f.jpg	32	HX 0001 MM	W1KZF0FB0MA871050	2024-02-11 17:15:45.07743
+705	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015636.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kiev	380672594432	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535991069f.jpg	29	  	LFVVB9E61P5017669	2024-02-11 17:16:07.490202
+706	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35883468.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__532400630f.jpg	32	  	LFVVB9E60P5021695	2024-02-11 17:19:46.344257
+707	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015513.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535987925f.jpg	36	  	LFVVB9E68P5017842	2024-02-11 17:19:58.313307
+708	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35852534.html	Volkswagen ID.4 Crozz 2023	37950	1000	SKM-1 Kyiv	380675464141	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__531548169f.jpg	58	  	LFVVB9E6XP5020358	2024-02-11 17:20:11.193485
+709	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35981399.html	Volkswagen ID.4 Crozz 2023	28300	1000	4Колеса Київ	380631046001	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535060117f.jpg	34	  	LFVVB9E62P5015705	2024-02-11 17:20:24.19751
+710	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35975798.html	Volkswagen ID.4 Crozz 2023	37950	1000	SKM-1 Kiev	380672594432	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534898305f.jpg	31	  	LFVVB9E67P5020432	2024-02-11 17:20:38.302242
+711	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35898003.html	Volkswagen ID.4 Crozz 2023	28310	1000	Олексій	380957934107	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__532800761f.jpg	33	  	LFVVB9E60P5010762	2024-02-11 17:20:53.60076
+712	https://auto.ria.com/uk/auto_volkswagen_id_4_35888722.html	Volkswagen ID.4 2023	30500	1000	SKM-1 Kiev	380672594432	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4__532547030f.jpg	26	  	LFVVB9E69P5021663	2024-02-11 17:21:06.833052
+713	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015440.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535985535f.jpg	28	  	LFVVB9E64P5019237	2024-02-11 17:21:16.674533
+714	https://auto.ria.com/uk/auto_porsche_cayenne_35960415.html	Porsche Cayenne 2012	19999	162000	Артур	380990987777	https://cdn3.riastatic.com/photosnew/auto/photo/porsche_cayenne__534458958f.jpg	32	  	WP1AB2A2xCLxxxx77	2024-02-11 17:21:27.367232
+715	https://auto.ria.com/uk/auto_bmw_x5_35908836.html	BMW X5 2013	28200	71000	Константин	380679161410	https://cdn1.riastatic.com/photosnew/auto/photo/bmw_x5__533103461f.jpg	46	AB 1800 HK	WBAZW410700F69617	2024-02-11 17:21:38.177572
+716	https://auto.ria.com/uk/auto_skoda_octavia_36005717.html	Skoda Octavia 2007	7300	276000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__535716941f.jpg	89	  	TMBBK61Z988010848	2024-02-11 17:21:50.568034
+717	https://auto.ria.com/uk/auto_volkswagen_passat_alltrack_35662955.html	Volkswagen Passat Alltrack 2019	24700	196000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_passat-alltrack__526448376f.jpg	177	  	WVWZZZ3CZKE203530	2024-02-11 17:22:03.723729
+718	https://auto.ria.com/uk/auto_skoda_octavia_35817793.html	Skoda Octavia 2019	14700	215000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__530664521f.jpg	162	  	TMBJG9NE7K0183019	2024-02-11 17:22:16.371319
+719	https://auto.ria.com/uk/auto_ford_f_150_36027029.html	Ford F-150 2021	41000	39000	Максим	380679119939	https://cdn0.riastatic.com/photosnew/auto/photo/ford_f-150__536309380f.jpg	75	AI 1625 PC	1FTFW1E50MFB30737	2024-02-11 17:22:27.770192
+720	https://auto.ria.com/uk/auto_audi_sq8_35138974.html	Audi SQ8 2020	82500	148000	Дмитро Миколайович	380965375555	https://cdn0.riastatic.com/photosnew/auto/photo/audi_sq8__513010945f.jpg	68	  	WAUZZZF14MD004209	2024-02-11 17:22:40.687045
+721	https://auto.ria.com/uk/auto_peugeot_508_34970735.html	Peugeot 508 2020	29900	31000	Игорь	380973272610	https://cdn3.riastatic.com/photosnew/auto/photo/peugeot_508__508613883f.jpg	32	BI 0508 HH	VR3F35GXVKY194630	2024-02-11 17:22:52.795747
+722	https://auto.ria.com/uk/auto_skoda_octavia_36028584.html	Skoda Octavia 2017	14600	268000	Ім’я не вказане	380972243699	https://cdn4.riastatic.com/photosnew/auto/photo/skoda_octavia__536331699f.jpg	60	  	TMBJJ9NE2J0180593	2024-02-11 17:23:04.152702
+723	https://auto.ria.com/uk/auto_mercedes_benz_e_class_35952141.html	Mercedes-Benz E-Class 2020	56500	34000	Саша	380977053963	https://cdn3.riastatic.com/photosnew/auto/photo/mercedes-benz_e-class__534300168f.jpg	32	HX 0001 MM	W1KZF0FB0MA871050	2024-02-11 17:23:14.699664
+724	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35903311.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kyiv	380675464141	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__532943137f.jpg	43	  	LFVVB9E68P5014753	2024-02-11 17:23:26.772419
+725	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015636.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kiev	380672594432	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535991069f.jpg	29	  	LFVVB9E61P5017669	2024-02-11 17:23:36.909741
+726	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015653.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kiev	380672594432	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535991375f.jpg	37	  	LFVVB9E68P5015675	2024-02-11 17:23:50.551702
+727	https://auto.ria.com/uk/auto_mercedes_benz_sprinter_36014361.html	Mercedes-Benz Sprinter 2018	21800	197000	Ref & Bus	380676115119	https://cdn4.riastatic.com/photosnew/auto/photo/mercedes-benz_sprinter__535930159f.jpg	14	  	WDB9061332N772348	2024-02-11 17:24:03.197694
+728	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35974113.html	Volkswagen ID.4 Crozz 2023	37500	1000	SKM-1 Kiev	380672594432	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534849964f.jpg	58	  	LFVVB9E66P5016372	2024-02-11 17:24:15.019887
+729	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35940260.html	Volkswagen ID.4 Crozz 2023	28300	1000	4Колеса	380671557373	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__533971868f.jpg	33	  	LFVVB9E6XP5009232	2024-02-11 17:24:26.495767
+730	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36020745.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__536128525f.jpg	27	  	LFVVB9E66P5029896	2024-02-11 17:24:39.911894
+731	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015282.html	Volkswagen ID.4 Crozz 2023	28300	1000	4Колеса Львів	380673395542	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535964192f.jpg	27	  	LFVVB9E60P5015606	2024-02-11 17:24:52.805317
+732	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35851718.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kyiv	380675464141	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__531527419f.jpg	39	  	LFVVB9E68P5014624	2024-02-11 17:25:05.970078
+733	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015607.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kiev	380672594432	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535990338f.jpg	35	  	LFVVB9E60P5022328	2024-02-11 17:25:19.44061
+734	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35982520.html	Volkswagen ID.4 Crozz 2023	28590	1000	ЕлектроКінь	380638500606	https://cdn3.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535095588f.jpg	29	  	LFVVB9E60P5015413	2024-02-11 17:25:31.376182
+735	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35979119.html	Volkswagen ID.4 Crozz 2023	28280	1000	Батарейка іК	380634100907	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534990936f.jpg	19	  	LFVVB9E61P5010446	2024-02-11 17:25:48.038951
+736	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35883468.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__532400630f.jpg	32	  	LFVVB9E60P5021695	2024-02-11 17:28:00.56512
+737	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015513.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535987925f.jpg	36	  	LFVVB9E68P5017842	2024-02-11 17:28:11.333575
+738	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35852534.html	Volkswagen ID.4 Crozz 2023	37950	1000	SKM-1 Kyiv	380675464141	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__531548169f.jpg	58	  	LFVVB9E6XP5020358	2024-02-11 17:28:21.367907
+739	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35981399.html	Volkswagen ID.4 Crozz 2023	28300	1000	4Колеса Київ	380631046001	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535060117f.jpg	34	  	LFVVB9E62P5015705	2024-02-11 17:28:33.645922
+740	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35883468.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__532400630f.jpg	32	  	LFVVB9E60P5021695	2024-02-11 17:28:58.106054
+741	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015513.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535987925f.jpg	36	  	LFVVB9E68P5017842	2024-02-11 17:29:10.859489
+742	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35883468.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__532400630f.jpg	32	  	LFVVB9E60P5021695	2024-02-11 18:04:45.89867
+743	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35883468.html	Volkswagen ID.4 Crozz 2023	27500	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__532400630f.jpg	32	  	LFVVB9E60P5021695	2024-02-11 18:05:56.068167
+744	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_36015513.html	Volkswagen ID.4 Crozz 2023	28750	1000	SKM-1 Kyiv	380675464141	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535987925f.jpg	36	  	LFVVB9E68P5017842	2024-02-11 18:06:09.367666
+745	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35852534.html	Volkswagen ID.4 Crozz 2023	37950	1000	SKM-1 Kyiv	380675464141	https://cdn4.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__531548169f.jpg	58	  	LFVVB9E6XP5020358	2024-02-11 18:06:21.06349
+746	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35981399.html	Volkswagen ID.4 Crozz 2023	28300	1000	4Колеса Київ	380631046001	https://cdn2.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__535060117f.jpg	34	  	LFVVB9E62P5015705	2024-02-11 18:06:32.92082
+747	https://auto.ria.com/uk/auto_volkswagen_id_4_crozz_35975798.html	Volkswagen ID.4 Crozz 2023	37950	1000	SKM-1 Kiev	380672594432	https://cdn0.riastatic.com/photosnew/auto/photo/volkswagen_id-4-crozz__534898305f.jpg	31	  	LFVVB9E67P5020432	2024-02-11 18:06:42.550059
+748	https://auto.ria.com/uk/auto_skoda_octavia_36005717.html	Skoda Octavia 2007	7300	276000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__535716941f.jpg	89	  	TMBBK61Z988010848	2024-02-11 18:13:16.768453
+749	https://auto.ria.com/uk/auto_volkswagen_passat_alltrack_35662955.html	Volkswagen Passat Alltrack 2019	24700	196000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/volkswagen_passat-alltrack__526448376f.jpg	177	  	WVWZZZ3CZKE203530	2024-02-11 18:13:30.254857
+750	https://auto.ria.com/uk/auto_skoda_octavia_35817793.html	Skoda Octavia 2019	14700	215000	Сергій Станіславович	380673140436	https://cdn1.riastatic.com/photosnew/auto/photo/skoda_octavia__530664521f.jpg	162	  	TMBJG9NE7K0183019	2024-02-11 18:13:42.6653
+\.
+
+
+--
+-- Name: cars_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.cars_id_seq', 750, true);
+
+
+--
+-- Name: cars cars_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cars
+    ADD CONSTRAINT cars_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+����e�backup 2024-02-11 18-14-22.881783          

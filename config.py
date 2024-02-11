@@ -1,0 +1,5 @@
+host = "localhost"
+user = "postgres"
+password = "password"
+db_name = "cars"
+dump_folder = "dumps"
