@@ -7,10 +7,12 @@ from db import insert_data
 
 
 def start_connect(page, s):
+    used_cars_url = "https://auto.ria.com/car/used/"
+
     if page == 1:
-        r = s.get("https://auto.ria.com/car/used/")
+        r = s.get(used_cars_url)
     else:
-        r = s.get("https://auto.ria.com/car/used/" + "?page=" + str(page))
+        r = s.get(used_cars_url + "?page=" + str(page))
 
     html = BS(r.content, 'html.parser')
 
@@ -42,10 +44,10 @@ def get_phone(link):
 def data():
     s = requests.Session()
 
-    # Increase the redirect
+    # Increase the redirect(hack to fix default python redirect number)
     s.max_redirects = 1000000
 
-    print("Data is started parcing!")
+    print("Data parsing is started!")
 
     page = 1
 
@@ -144,7 +146,7 @@ def data():
 
             page =+ 1
         else:
-            print("Data is successfully parced!!")
+            print("Data is successfully parsed!!")
             break
 
     return
