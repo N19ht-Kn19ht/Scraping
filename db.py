@@ -33,8 +33,25 @@ def insert_data(link, title, price_usd, mileage, name, phone, image_url, count_i
     connection = con[0]
     cursor = con[1]
 
-    # Insert data into a table
+    # Create a table
+    cursor.execute(
+        """CREATE TABLE IF NOT EXISTS cars(
+                id SERIAL PRIMARY KEY,
+                link VARCHAR NOT NULL,
+                title VARCHAR NOT NULL,
+                price_usd INTEGER NOT NULL,
+                mileage INTEGER,
+                name VARCHAR(50),
+                phone BIGINTEGER,
+                image_url VARCHAR NOT NULL,
+                count_images INTEGER NOT NULL,
+                car_number VARCHAR,
+                car_vin VARCHAR,
+                datetime TIMESTAMP NOT NULL);"""
+    )
+    print("[INFO] Table created successfully")
 
+    # Insert data into a table
     insert = """INSERT INTO cars (link, title, price_usd, mileage, name, phone, image_url, count_images,
     car_number, car_vin, datetime) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"""
 
@@ -43,24 +60,6 @@ def insert_data(link, title, price_usd, mileage, name, phone, image_url, count_i
     cursor.execute(insert, data)
 
     print("[INFO] Data was successfully inserted")
-
-    # Create a table
-    # cursor.execute(
-    #     """CREATE TABLE IF NOT EXISTS cars(
-    #             id SERIAL PRIMARY KEY,
-    #             link VARCHAR NOT NULL,
-    #             title VARCHAR NOT NULL,
-    #             price_usd INTEGER NOT NULL,
-    #             mileage INTEGER,
-    #             name VARCHAR(50),
-    #             phone BIGINTEGER,
-    #             image_url VARCHAR NOT NULL,
-    #             count_images INTEGER NOT NULL,
-    #             car_number VARCHAR,
-    #             car_vin VARCHAR,
-    #             datetime TIMESTAMP NOT NULL);"""
-    # )
-    # print("[INFO] Table created successfully")
 
     # print(f"Server version: {cursor.fetchone()}")
 
